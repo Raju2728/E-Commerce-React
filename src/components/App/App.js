@@ -16,6 +16,7 @@ import Merged from '../../Admin/Components/App/Merged';
 import ChangePassword from '../../Admin/Components/ChangePassword/Changepass';
 import AddItems from '../../Admin/Components/Add items/AddItems';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
+import ManageORD from '../../Admin/Components/ManageOrders/ManageORD';
 
 
 function App() { 
@@ -35,6 +36,7 @@ function App() {
         <Route path='/AddItems' element={<AddItems/>}/>
         <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
         <Route path='/changepassword' element={<ChangePassword/>}/>
+        <Route path='/ManageOrders' element={<ManageORD/>}/>
       </Routes>
       <FooterPage/>
     </div>

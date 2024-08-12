@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Nav } from 'react-bootstrap';
 import { FaUser } from 'react-icons/fa';
 import './adminnavbar.css'; // Optional: for custom styling
-import { FaShoppingCart } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
 import { CiSettings } from "react-icons/ci";
 import { LuLogOut } from "react-icons/lu";
 import { FaExchangeAlt } from "react-icons/fa";
@@ -54,7 +54,7 @@ const AdminNavBar = () => {
           </Nav.Item>
           <Nav.Item className='mb-3 bg-secondary'>
             <Nav.Link href="/AddItems" className="text-light ps-5">
-            <FaShoppingCart /> Add Items
+            <FaCartPlus /> Add Items
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className='mb-3 bg-secondary'>

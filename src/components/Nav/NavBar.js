@@ -1,12 +1,13 @@
-import React from 'react';
+import {React , useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav,Form, FormControl, Button } from 'react-bootstrap';
 import '../Nav/navbar.css'
 import { Link } from 'react-router-dom';
+import { FaCartPlus } from "react-icons/fa";
 
 function NavBar() {
   const UserName = localStorage.getItem('UserName');
-
+  const [cartCount, setcartCount] = useState();
 
   return (
     <Navbar bg="dark" expand="lg" className='navbar' >
@@ -20,6 +21,7 @@ function NavBar() {
             <Nav.Link className='text-light ms-3'><Link to='/categories' className='link' >Categories</Link></Nav.Link>
             <Nav.Link className='text-light ms-3'><Link to='/profile' className='link' >{UserName && <span className="User-name">{UserName}</span>}</Link></Nav.Link>
           </Nav>
+          <Button className='me-3'> <FaCartPlus/> Cart <span >{cartCount}</span></Button>
           <Form className="d-flex">
             <FormControl
               type="search"
