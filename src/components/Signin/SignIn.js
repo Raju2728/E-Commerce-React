@@ -8,7 +8,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const SignIn = () => {
   const navigate = useNavigate()
   const [msg , setMsg] = useState('')
-  const [error , setErrors] = useState('')
   const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -34,7 +33,6 @@ const SignIn = () => {
       
     } catch (error) {
       console.error('Error signing in:', error);
-      setErrors('Invalid username or password');
     }
   };
 

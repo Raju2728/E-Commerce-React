@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import NavBar from '../Nav/NavBar';
 import './signup.css';
-import { Form, InputGroup } from 'react-bootstrap';
+import { Form, InputGroup, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
@@ -19,9 +19,9 @@ const Signup = () => {
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
-
+  const [messageType, setMessageType] = useState('');
   const [message , setMessage] = useState("")
-  const [showmessage , setShowMessage] = useState(false)
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,16 +54,13 @@ const Signup = () => {
       try {
         const response = await axios.post('http://localhost:7230/signup', formData);
         setMessage("Registration successful!"); // Set success message
-        setShowMessage(true); // Show the message box
-        setTimeout(() => setShowMessage(false), 3000)
+        setMessageType('success')
         console.log('Form data submitted:', response.data);
         navigate('/E-Commerce-React')
       } catch (error) {
         console.error('Error submitting form:', error);
         setMessage("Registration failed. Please try again."); // Set error message
-        setShowMessage(true); // Show the message box
-        setTimeout(() => setShowMessage(false), 3000);
-
+        setMessageType('danger')
       }
     } else {
       setErrors(validationErrors);
@@ -79,6 +76,11 @@ const Signup = () => {
       <NavBar />
       <div className='glass-bg'>
         <div className="container">
+        {message && (
+            <Alert variant={messageType} onClose={() => setMessage('')} dismissible>
+              {message}
+            </Alert>
+          )}
           <h2 className="my-4 row justify-content-center">Sign Up</h2>
           <form onSubmit={handleSubmit} noValidate>
             <div className="row justify-content-center">

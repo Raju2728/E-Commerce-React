@@ -1,0 +1,11 @@
+.admin-User{
+    background-color: rgba(255, 255, 255, 0.389);
+    min-height: 40rem;
+    min-width: 75%;
+    position: absolute;
+    left: 20rem;
+    top: 2.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    padding: 5rem;
+}

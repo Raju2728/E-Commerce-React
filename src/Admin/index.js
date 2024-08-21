@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 const Adminindex = () => {
   const navigate = useNavigate()
   const [msg , setMsg] = useState('')
-  const [error , setErrors] = useState('')
   const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -32,7 +31,6 @@ const Adminindex = () => {
       
     } catch (error) {
       console.error('Error signing in:', error);
-      setErrors('Invalid username or password');
     }
   };
 

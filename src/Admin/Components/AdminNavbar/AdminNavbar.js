@@ -21,15 +21,24 @@ const handleLogout = () => {
   }
 
 const AdminNavBar = () => {
-  const [userCount, setUserCount] = useState(0);
+  const [userCount, setUserCount] = useState();
   const AdminUserName = localStorage.getItem('AdminUserName');
 
   useEffect(() => {
     // Fetch user count from your backend API
-    fetch('/api/userCount') // Replace with your API endpoint
-      .then(response => response.json())
-      .then(data => setUserCount(data.count))
-      .catch(error => console.error('Error fetching user count:', error));
+    const fetchCount=async()=>{
+      try{
+        const response= await axios.get('http://localhost:7230/userCount') // Replace with your API endpoint
+        setUserCount(response.data)
+        // console.log(response.data);
+        // console.log({userCount});
+      }
+      catch(error)
+      {
+        console.error('Error fetching user count:', error);
+      }
+    }
+   fetchCount();
   }, []);
 
   return (

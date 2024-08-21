@@ -18,6 +18,7 @@ const ProfilePage = () => {
         axios.get('/api/user/profile')
             .then(response => {
                 setUserData(response.data);
+                console.log(userData)
             })
             .catch(error => {
                 console.error('Error fetching user data:', error);
@@ -40,7 +41,7 @@ const ProfilePage = () => {
             .catch(error => {
                 console.error('Error fetching saved items:', error);
             });
-    }, []);
+    });
 
     const handleLogout = () => {
         axios.post('http://localhost:7230/logout')

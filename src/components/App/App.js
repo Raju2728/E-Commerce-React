@@ -17,6 +17,7 @@ import ChangePassword from '../../Admin/Components/ChangePassword/Changepass';
 import AddItems from '../../Admin/Components/Add items/AddItems';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import ManageORD from '../../Admin/Components/ManageOrders/ManageORD';
+import User from '../../Admin/Components/WatchUser/User';
 
 
 function App() { 
@@ -37,6 +38,7 @@ function App() {
         <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
         <Route path='/changepassword' element={<ChangePassword/>}/>
         <Route path='/ManageOrders' element={<ManageORD/>}/>
+        <Route path='/WatchUsers' element={<User/>}/>
       </Routes>
       <FooterPage/>
     </div>
