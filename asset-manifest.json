@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/E-Commerce-React/static/css/main.cd24aaa2.css",
-    "main.js": "/E-Commerce-React/static/js/main.7e75c95f.js",
+    "main.js": "/E-Commerce-React/static/js/main.256fe710.js",
     "static/media/AdminPage-bg.jpg": "/E-Commerce-React/static/media/AdminPage-bg.06054e5ad2c77eab1ceb.jpg",
     "static/media/slider1_2.jpg": "/E-Commerce-React/static/media/slider1_2.bc281f58f14613ac5a70.jpg",
     "static/media/changepass-bg.jpg": "/E-Commerce-React/static/media/changepass-bg.4a6074a311e2cd42b9a8.jpg",
@@ -10,10 +10,10 @@
     "static/media/UserProfile.avif": "/E-Commerce-React/static/media/UserProfile.4432ff58be645319b214.avif",
     "index.html": "/E-Commerce-React/index.html",
     "main.cd24aaa2.css.map": "/E-Commerce-React/static/css/main.cd24aaa2.css.map",
-    "main.7e75c95f.js.map": "/E-Commerce-React/static/js/main.7e75c95f.js.map"
+    "main.256fe710.js.map": "/E-Commerce-React/static/js/main.256fe710.js.map"
   },
   "entrypoints": [
     "static/css/main.cd24aaa2.css",
-    "static/js/main.7e75c95f.js"
+    "static/js/main.256fe710.js"
   ]
 }
