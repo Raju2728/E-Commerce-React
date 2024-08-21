@@ -2,16 +2,21 @@ import {React , useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav,Form, FormControl, Button } from 'react-bootstrap';
 import '../Nav/navbar.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaCartPlus } from "react-icons/fa";
 
 function NavBar() {
+  const navigate = useNavigate();
   const UserName = localStorage.getItem('UserName');
   const [cartCount, setcartCount] = useState();
 
+  const admin = () =>{
+    navigate("/AdminPannel")
+  }
+
   return (
     <Navbar bg="dark" expand="lg" className='navbar' >
-        <Navbar.Brand href="/E-Commerce-React" className='text-light ms-4'>Trending Mart</Navbar.Brand>
+        <Navbar.Brand style={{cursor:"pointer"}} onDoubleClick={admin} className='text-light ms-4'>Trending Mart</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className='toggel'/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
