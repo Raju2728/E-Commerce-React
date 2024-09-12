@@ -7,5 +7,14 @@
     top: 2.5rem;
     border-radius: 10px;
     backdrop-filter: blur(6px);
-    padding: 5rem;
+    padding: 2rem;
+    
+}
+.tab{
+    max-height: 500px;
+    overflow-y: auto;
+}
+.head{
+    position: sticky;
+    top: 0;
 }

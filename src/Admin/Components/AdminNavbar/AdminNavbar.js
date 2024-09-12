@@ -57,7 +57,7 @@ const AdminNavBar = () => {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className='mb-3 bg-secondary'>
-            <Nav.Link href="/WatchUsers" className="text-light ps-5">
+            <Nav.Link href="/Users" className="text-light ps-5">
               <FaUser /> Users <span className="badge bg-success">{userCount}</span>
             </Nav.Link>
           </Nav.Item>

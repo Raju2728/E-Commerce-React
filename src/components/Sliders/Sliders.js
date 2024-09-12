@@ -4,7 +4,7 @@ import './slide.css'
 
 function Sliders() {
   return (
-    <Carousel className='slider'>
+    <Carousel className='slider' interval={5000} fade>
       <Carousel.Item>
         <img 
         text="First slide" 

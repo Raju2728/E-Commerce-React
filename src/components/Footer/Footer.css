@@ -1,12 +1,11 @@
 /* src/FooterPage.css */
 .footer {
-    background-color: #343a40;
+    background-color: #8b8f93;
     color: white;
     padding: 1rem;
   }
   
   .footer a {
-    color: white;
     text-decoration: none;
   }
   

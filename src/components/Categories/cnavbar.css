@@ -8,6 +8,10 @@
     color: black;
     text-decoration: none;
 }
+.clink:hover{
+    color: black;
+    text-decoration: none;
+}
 .scroll{
     height: 2rem;
     padding: .5rem;

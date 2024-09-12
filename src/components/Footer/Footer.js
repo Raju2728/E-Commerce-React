@@ -5,7 +5,7 @@ import './Footer.css';
 
 const FooterPage = () => {
   return (
-    <footer className="footer mt-5 py-4 bg-dark text-white">
+    <footer className="footer mt-5 py-4 text-dark">
         <Row>
           <Col md={4}>
             <h5>Trending Mart</h5>
@@ -24,9 +24,9 @@ const FooterPage = () => {
           <Col md={4}>
             <h5>Follow Us</h5>
             <p>
-              <a href="facebook.com" className="text-white me-2" target='_blank'><i className="fab fa-facebook" ></i> Facebook</a> <br />
-              <a href="instagram.com" className="text-white me-2" target='_blank'><i className="fab fa-instagram"></i> Instagram</a> <br />
-              <a href="X.com" className="text-white me-2" target='_blank'><i className="fab fa-twitter"></i> Twitter</a> <br />
+              <a href="facebook.com" className="text-black me-2" target='_blank'><i className="fab fa-facebook" ></i> Facebook</a> <br />
+              <a href="instagram.com" className="text-black me-2" target='_blank'><i className="fab fa-instagram"></i> Instagram</a> <br />
+              <a href="X.com" className="text-black me-2" target='_blank'><i className="fab fa-twitter"></i> Twitter</a> <br />
             </p>
           </Col>
         </Row>

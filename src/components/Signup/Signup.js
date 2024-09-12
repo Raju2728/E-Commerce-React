@@ -56,7 +56,8 @@ const Signup = () => {
         setMessage("Registration successful!"); // Set success message
         setMessageType('success')
         console.log('Form data submitted:', response.data);
-        navigate('/E-Commerce-React')
+        alert("Verification Mail Sent Successfully. Please Enter the OTP")
+        navigate('/VerifyEmail')
       } catch (error) {
         console.error('Error submitting form:', error);
         setMessage("Registration failed. Please try again."); // Set error message

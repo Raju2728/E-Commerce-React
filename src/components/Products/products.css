@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     padding-left: 2rem;
     padding-right: 2rem;
-    background-color: darkblue;
+    background-color: #6fa8dc;
 }
 .pro-img{
     height: 15rem;
@@ -12,11 +12,20 @@
     text-decoration: none;
     color: white;
 }
+.link-body:hover{
+    text-decoration: none;
+    color: white;
+}
+
 .card{
     height: 30rem;
+    min-width: 200px;
     box-shadow: 3px 3px 10px 1px grey;
     cursor: pointer;
     transition: .2s ease-out;
+    margin-top: 3.1rem;
+    overflow: hidden;
+    margin-right: 25rem;
 }
 .card:hover{
     transform: scale(1.05);
@@ -24,7 +33,7 @@
 .container2{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 2rem;
+    padding-left: 2%;
     padding-right: 2rem;
     background-color: lightpink;
 }
@@ -35,18 +44,22 @@
     padding-right: 2rem;
     background-color: skyblue;
 }
+.p-ogprice{
+    text-decoration: line-through;
+}
 @media (max-width:768px){
     .card{
-        height: fit-content;
+        height: 90%;
     }
     .pro-img{
         height: 15rem;
     }
 }
-@media (max-width:320px){
+@media (max-width:460px){
     .card{
         height: fit-content;
         width: 12rem;
+        margin-right: 0rem;
     }
     .pro-img{
         height: fit-content;
