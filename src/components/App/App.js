@@ -22,20 +22,18 @@ import UserComp from '../../Admin/Components/WatchUser/UserComp';
 import Verified from '../Signup/Verified';
 // import ProductDetail from '../Product Details/ProductDetails';
 import ProductTry from '../Product Details/ProductTry';
-import { useState } from 'react';
+import { CartProvider } from '../CartContext/CartContext';
 import Cart from '../Cart/Cart';
+import PaymentPage from '../Payment Page/Payment';
+import NetBankingPage from '../Payment Page/NetBanking/NetBankingPage';
+import ManageItems from '../../Admin/Components/Manage Items/ManageItems';
+import ManagePlist from '../../Admin/Components/Manage Items/ManageComponents/ManagePlist';
 
 
 function App() { 
-
-  const [cartItems, setCartItems] = useState([]);
-
-  // Function to add product to cart
-  const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
-  };
   return (
     <div> 
+      <CartProvider>
       <Routes> 
         <Route path='/E-Commerce-React' element={<New/>}/>
         <Route path='/signup' element={<Signup/>}/>
@@ -48,15 +46,20 @@ function App() {
         <Route path='/profile' element={<DisplayProfile/>}/>
         <Route path='/Admin' element={<Adminindex/>}/>
         <Route path='/AdminPannel' element={<Merged/>}/>
-        <Route path='/AddItems' element={<AddItems/>}/>
+        <Route path='/AddProducts' element={<AddItems/>}/>
         <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
         <Route path='/changepassword' element={<ChangePassword/>}/>
         <Route path='/ManageOrders' element={<ManageORD/>}/>
         <Route path='/Users' element={<User/>}/>
         <Route path='/WatchUsers' element={<UserComp/>}/>
         <Route path='/cart' element={<Cart/>}/>
-        <Route path="/product/:id" element={<ProductTry addToCart={addToCart}/>} />
+        <Route path="/product/:id" element={<ProductTry/>} />
+        <Route path="/payment" element={<PaymentPage/>} />
+        <Route path='/Netbanking' element={<NetBankingPage/>} />
+        <Route path='/ManageItems' element={<ManageItems/>} />
+        <Route path='/ManageProducts' element={<ManagePlist/>} />
       </Routes>
+      </CartProvider>
       <FooterPage/>
     </div>
   );

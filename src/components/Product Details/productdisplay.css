@@ -52,6 +52,7 @@
 .s-img{
     width: 100%;
     height: 280px;
+    border-radius: 0;
 }
 .Product-detail{
     padding: 2%;
@@ -63,6 +64,22 @@
 }
 .s-card{
     width: 100%;
+}
+.outofstock{
+    box-shadow: 1px 1px 8px 10px rgb(255, 93, 93);
+    border-radius: 6px;
+    animation: Ostock 1s ease-in-out infinite alternate;
+    display: inline-block;
+}
+@keyframes Ostock {
+    0% , 100% {
+        color: black;
+    }
+    50%{
+        color: white;
+    }
+
+    
 }
 @media screen and (max-width:768px) {
     .suggestedPro{

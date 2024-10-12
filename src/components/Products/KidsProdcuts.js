@@ -59,6 +59,23 @@ const KidsProductsPage = ({ direction = 'left' }) => {
           {products.map((product) => (
             <Col key={product.id} md={4} lg={2} className="mb-4" onClick={()=>handleProductClick(product.id)}>
               <Card className="card">
+              {product.stock === 0 ?
+                (<div className='d-flex w-100 justify-content-center align-items-center rounded-top p-stock'>
+                  In-Stock
+                  <div className='green-dot'>
+                    <div className='white-dot'>
+                      <div className='inner-Gdot'></div>
+                    </div>
+                  </div>
+                </div>):
+                (<div className='d-flex w-100 justify-content-center align-items-center p-stock'>
+                  Out-Of-Stock
+                  <div className='red-dot'>
+                    <div className='white-dot'>
+                      <div className='inner-Rdot'></div>
+                    </div>
+                  </div>
+                </div>)}
                 <Card.Img 
                   variant="top" 
                   src={`http://localhost:7230/uploads/${product.image1}`}
@@ -68,9 +85,9 @@ const KidsProductsPage = ({ direction = 'left' }) => {
                 <Card.Body className="p-cont">
                   <Card.Title className="p-name">{product.Pname}</Card.Title>
                   <Card.Text>{product.description}</Card.Text>
-                  <Card.Text className="text-muted text-decoration-line-through"> <strong> Original Price: <span className='text-danger'>&#8377;{product.originalprice}</span></strong>
+                  <Card.Text className="text-muted text-decoration-line-through gap"> <strong> Original Price: <span className='text-danger'>&#8377;{product.originalprice}</span></strong>
                   </Card.Text>
-                  <Card.Text className="text-dark"> <strong> Offer Price: <span className='text-success'>&#8377;{product.offerprice}</span></strong>
+                  <Card.Text className="text-dark gap"> <strong> Offer Price: <span className='text-success'>&#8377;{product.offerprice}</span></strong>
                   </Card.Text>
                   <Button variant="primary" className="adc-btn">Add to Cart</Button>
                 </Card.Body>

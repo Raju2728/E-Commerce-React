@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Nav } from 'react-bootstrap';
+import { Nav,Dropdown } from 'react-bootstrap';
 import { FaUser } from 'react-icons/fa';
 import './adminnavbar.css'; // Optional: for custom styling
 import { FaCartPlus } from "react-icons/fa";
@@ -62,7 +62,7 @@ const AdminNavBar = () => {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className='mb-3 bg-secondary'>
-            <Nav.Link href="/AddItems" className="text-light ps-5">
+            <Nav.Link href="/AddProducts" className="text-light ps-5">
             <FaCartPlus /> Add Items
             </Nav.Link>
           </Nav.Item>
@@ -71,11 +71,16 @@ const AdminNavBar = () => {
             <CiSettings /> Manage Orders
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item className='mb-5 bg-secondary'>
-            <Nav.Link href='/ManageItems' className="text-light ps-5">
-             <MdManageHistory/> Manage Items
-            </Nav.Link>
-          </Nav.Item>
+         {/* Dropdown for Manage Items */}
+         <Dropdown className='mb-3 bg-secondary'>
+              <Dropdown.Toggle as={Nav.Link} className="text-light ps-5 bg-secondary" id="dropdown-manage-items">
+                <MdManageHistory /> Manage Items
+              </Dropdown.Toggle>
+              <Dropdown.Menu className='bg-secondary w-100'>
+                <Dropdown.Item href="/ManageItems" >Update Items</Dropdown.Item>
+                <Dropdown.Item href="/ManageProducts">Product List</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           <Nav.Item className='bg-secondary' style={{marginTop:"17.8rem"}}>
             <Nav.Link className='text-light d-flex'>
               <div className='Admin-profile'></div>

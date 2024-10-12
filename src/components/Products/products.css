@@ -7,6 +7,73 @@
 }
 .pro-img{
     height: 15rem;
+    border-radius: 0;
+}
+.green-dot{
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: green;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: shadowgreen 1s infinite ease-in-out;
+    /* box-shadow: 1px 1px 10px 3px green; */
+}
+.red-dot{
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: red;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: shadowred 1s infinite ease-in-out;
+}
+.white-dot{
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+}
+.inner-Gdot{
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 50%;
+    background-color:lightgreen;
+}
+.inner-Rdot{
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 50%;
+    background-color: rgb(255, 97, 97);
+}
+@keyframes shadowgreen {
+    0%{
+        box-shadow: 0 0 0 0px lightgreen;
+    }
+    50%{
+            box-shadow: 1px 1px 10px 5px lightgreen;
+    }
+    100%{
+        box-shadow: 0 0 0 0px lightgreen;
+    }
+}
+@keyframes shadowred {
+    0%{
+        box-shadow: 0 0 0 0px red;
+    }
+    50%{
+            box-shadow: 1px 1px 8px 3px rgb(255, 97, 97);
+    }
+    100%{
+        box-shadow: 0 0 0 0px red;
+    }
 }
 .link-body{
     text-decoration: none;
@@ -16,7 +83,18 @@
     text-decoration: none;
     color: white;
 }
-
+.gap{
+    margin-top: -1rem;
+}
+.p-name{
+    font-weight: lighter;
+    margin-top: -1rem;
+}
+.p-stock{
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
 .card{
     height: 30rem;
     min-width: 200px;

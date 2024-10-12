@@ -46,7 +46,7 @@ const SignIn = () => {
             {msg && <p style={{margin:'1rem', color:'red', fontWeight:'bold'}}>{msg}</p>}
             <Form onSubmit={handleSubmit}  >
             <div className="form-group">
-                  <label htmlFor="username" className='float-lb'>Username</label>
+                  <label htmlFor="username" className='float-lb'>Email</label>
                   <input
                     type="text"
                     className="form-control"

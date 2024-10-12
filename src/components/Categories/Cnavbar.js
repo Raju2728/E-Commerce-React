@@ -7,7 +7,7 @@ import './cnavbar.css';
 function Cnavbar() {
   return (
     <div className='cnavbar'>
-        <marquee className='scroll'>
+        <marquee className='c-scroll'>
             Best collection @ Trending Mart with 25% Offer
         </marquee>
     <Navbar expand="lg">

@@ -4,7 +4,7 @@ import { Alert } from 'react-bootstrap'
 import './additems.css'
 import axios from 'axios'
 import { FaCartPlus } from "react-icons/fa";
-
+import { IoReload } from "react-icons/io5";
 
 const AddItems = () => {  
   const [message, setMessage] = useState('');
@@ -20,6 +20,9 @@ const AddItems = () => {
   const [image2, setImage2] = useState(null);
   const [image3, setImage3] = useState(null);
 
+  const clearForm = () =>{
+    window.location.reload();
+  }
 
   const HandelSubmit = async(e) =>{
     e.preventDefault();
@@ -53,7 +56,7 @@ const AddItems = () => {
         setMessageType('danger');
         setTimeout(() => {
           setMessage("")
-        }, 3000);
+        }, 1000);
       }
       }) 
       .catch(val=>{
@@ -110,7 +113,7 @@ const AddItems = () => {
               <option value="Female">Women</option>
               <option value="Kids">Kids</option>
             </select><br/>
-            <label className='lb-name mt-3'>Material Type</label>
+            <label className='lb-name mt-2'>Material Type</label>
             <select className='options' style={{position:"relative", left:"1.3rem"}} name='material' onChange={(e)=>setmaterial(e.target.value)}  required>
             <option value="" disabled selected>-Select material-</option>
               <option value='Cotton'>Cotton</option>
@@ -118,18 +121,19 @@ const AddItems = () => {
               <option value='Rayon'>Rayon</option>
             </select><br/>
             <label className='lb-name'>Description</label>
-            <textarea className='textarea mt-3 ps-2' name="description" placeholder="Enter Description" rows={4} cols={25} onChange={(e)=>setdescription(e.target.value)}  required/><br/>
+            <textarea className='textarea mt-2 ps-2' name="description" placeholder="Enter Description" rows={4} cols={25} onChange={(e)=>setdescription(e.target.value)}  required/><br/>
             <label className='lb-name' style={{position:'relative', left:'-4rem'}}>Product Image 1</label>
-            <input type='file' className='input-file mt-3' name='image1' multiple onChange={handleImageChange} required/><br/>
+            <input type='file' className='input-file mt-2' name='image1' multiple onChange={handleImageChange} required/><br/>
             <label className='lb-name' style={{position:'relative', left:'-4rem'}}>Product Image 2</label>
-            <input type='file' className='input-file mt-3' name='image2' multiple onChange={handleImageChange} required/><br/>
+            <input type='file' className='input-file mt-2' name='image2' multiple onChange={handleImageChange} required/><br/>
             <label className='lb-name' style={{position:'relative', left:'-4rem'}}>Product Image 3</label>
-            <input type='file' className='input-file mt-3' name='image3' multiple onChange={handleImageChange} required/><br/>
+            <input type='file' className='input-file mt-2' name='image3' multiple onChange={handleImageChange} required/><br/>
             <label className='lb-name' style={{position:'relative', left:'-7rem'}}>Original Price</label>
-            <input type="text" className='input-tag mt-3 ps-2' style={{position:'relative', left:'3rem'}} name="originalprice" placeholder='Product Price' onChange={(e)=>setoriginalprice(e.target.value)}  required/><br/>
+            <input type="text" className='input-tag mt-2 ps-2' style={{position:'relative', left:'3rem'}} name="originalprice" placeholder='Product Price' onChange={(e)=>setoriginalprice(e.target.value)}  required/><br/>
             <label className='lb-name' style={{position:'relative', left:'-7rem'}}>Offer Price</label>
-            <input type="text" className='input-tag mt-3 ps-2' style={{position:'relative', left:'3.7rem'}} name="offerprice" placeholder='Product Price' onChange={(e)=>setofferprice(e.target.value)} required/><br/>
-            <button className='btn btn-success mt-5' type='submit'><FaCartPlus/> Add Product</button>
+            <input type="text" className='input-tag mt-2 ps-2' style={{position:'relative', left:'3.7rem'}} name="offerprice" placeholder='Product Price' onChange={(e)=>setofferprice(e.target.value)} required/><br/>
+            <button className='btn btn-success mt-3' type='submit'><FaCartPlus/> Add Product</button>
+            <button className='btn btn-info mt-3 ms-5' type='reset' onClick={clearForm}> <IoReload/> Reset</button>
           </form>
         </div>
     </div>

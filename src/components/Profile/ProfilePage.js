@@ -11,7 +11,6 @@ const ProfilePage = () => {
     const UserName = localStorage.getItem('UserName');
     const UserEmail = localStorage.getItem('UserEmail');
     const JoinDate = localStorage.getItem('JoinDate');
-    console.log(UserEmail);
 
     useEffect(() => {
         // Fetch user data
