@@ -11,7 +11,7 @@ import JoinProducts from '../Products/JoinProducts';
 import JoinWproducts from '../Products/JoinWproducts';
 import JoinKproducts from '../Products/JoinKproducts';
 import DisplayProfile from '../Profile/DisplayProfile';
-import Adminindex from '../../admin';
+import Adminindex from '../../admin/Adminindex';
 import Merged from '../../admin/components/app/Merged';
 import ChangePassword from '../../admin/Components/ChangePassword/Changepass';
 import AddItems from '../../admin/Components/Add items/AddItems';
