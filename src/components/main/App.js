@@ -11,7 +11,6 @@ import JoinProducts from '../Products/JoinProducts';
 import JoinWproducts from '../Products/JoinWproducts';
 import JoinKproducts from '../Products/JoinKproducts';
 import DisplayProfile from '../Profile/DisplayProfile';
-import Adminindex from '../../admin/Adminindex';
 import Merged from '../../admin/components/app/Merged';
 import ChangePassword from '../../admin/Components/ChangePassword/Changepass';
 import AddItems from '../../admin/Components/Add items/AddItems';
@@ -28,6 +27,7 @@ import PaymentPage from '../Payment Page/Payment';
 import NetBankingPage from '../Payment Page/NetBanking/NetBankingPage';
 import ManageItems from '../../admin/Components/Manage Items/ManageItems';
 import ManagePlist from '../../admin/Components/Manage Items/ManageComponents/ManagePlist';
+import AdminIndex from '../../admin/Adminindex';
 
 
 function App() { 
@@ -44,7 +44,7 @@ function App() {
         <Route path='/kids' element={<JoinKproducts/>}/>
         <Route path='/categories' element={<Combined/>}/>
         <Route path='/profile' element={<DisplayProfile/>}/>
-        <Route path='/Admin' element={<Adminindex/>}/>
+        <Route path='/Admin' element={<AdminIndex/>}/>
         <Route path='/AdminPannel' element={<Merged/>}/>
         <Route path='/AddProducts' element={<AddItems/>}/>
         <Route path='/ForgotPassword' element={<ForgotPassword/>}/>
