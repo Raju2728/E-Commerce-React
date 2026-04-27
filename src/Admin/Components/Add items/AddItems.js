@@ -5,6 +5,7 @@ import './additems.css'
 import axios from 'axios'
 import { FaCartPlus } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
+import { API_BASE_URL } from '../../../apiConfig';
 
 const AddItems = () => {  
   const [message, setMessage] = useState('');
@@ -38,7 +39,7 @@ const AddItems = () => {
     formData.append('originalprice', originalprice);
     formData.append('offerprice', offerprice);
 
-    axios.post("http://localhost:7230/AddItems" , formData , {
+    axios.post(`${API_BASE_URL}/AddItems`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -76,7 +77,7 @@ const AddItems = () => {
   useEffect(()=>{ 
    function main()
    {
-    axios.get("http://localhost:7230/GetItems")
+    axios.get(`${API_BASE_URL}/GetItems`)
     .then(val=>setadd(val.data))
     .catch(val=>console.log(val)) 
  

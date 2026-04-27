@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import NavBar from '../Nav/NavBar'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../../apiConfig';
 
 const Verified = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Verified = () => {
     });
 
     const handelSubmit = () => {
-      axios.post("http://localhost:7230/verify", otp)
+      axios.post(`${API_BASE_URL}/verify`, otp)
       .then(response => {
         console.log(response.data);
         alert("Verification Successfull");

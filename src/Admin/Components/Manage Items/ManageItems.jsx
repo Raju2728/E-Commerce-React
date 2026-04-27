@@ -3,6 +3,7 @@ import AdminNavBar from '../AdminNavbar/AdminNavbar'
 import './manageitems.css'
 import axios from 'axios'
 import { Alert } from 'react-bootstrap'
+import { API_BASE_URL } from '../../../apiConfig';
 
 
 const ManageItems = () => {
@@ -19,7 +20,7 @@ const ManageItems = () => {
     const HandelSubmit = async (e) =>{
       e.preventDefault();
       try {
-        const response = await axios.post('http://localhost:7230/ManageItems', {
+        const response = await axios.post(`${API_BASE_URL}/ManageItems`, {
           Pname,
           stock,
           originalprice,

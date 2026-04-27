@@ -6,6 +6,7 @@ import './productdisplay.css';
 import errImg from '../../Assets/404-error.jpg';
 import { Carousel, Card } from 'react-bootstrap';
 import { IoWarningOutline } from "react-icons/io5";
+import { API_BASE_URL, getImageUrl } from '../../apiConfig';
 
 const ProductTry = () => {
     const { id } = useParams();
@@ -19,7 +20,7 @@ const ProductTry = () => {
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
     // Function to handle adding product to cart
     const addToCart = () => {
-        axios.post(`http://localhost:7230/addTocart/${id}`)
+        axios.post(`${API_BASE_URL}/addTocart/${id}`)
             .then(response => {
                 setCartCount(response.data); // Update the cart count
                 // console.log(response.data)
@@ -28,7 +29,7 @@ const ProductTry = () => {
     };
 
     const sendEmailNotification = () => {
-        axios.post(`http://localhost:7230/subscribe/${id}`, {
+        axios.post(`${API_BASE_URL}/subscribe/${id}`, {
             productId: product.id, // Replace `id` with the product ID variable
             email: email   // Replace `email` with the state storing the user's email
         })
@@ -52,12 +53,12 @@ const ProductTry = () => {
 
     useEffect(() => {
         // Fetch product details
-        axios.get(`http://localhost:7230/products/${id}`)
+        axios.get(`${API_BASE_URL}/products/${id}`)
             .then(res => setProduct(res.data))
             .catch(err => console.error(err));
 
         // Fetch suggested products
-        axios.get(`http://localhost:7230/products/suggested/${id}`)
+        axios.get(`${API_BASE_URL}/products/suggested/${id}`)
             .then(res => setSuggestedProducts(res.data))
             .catch(err => console.error(err));
 
@@ -150,7 +151,7 @@ const ProductTry = () => {
                                 <Carousel.Item key={index}>
                                     <img
                                         className="d-block w-100 img"
-                                        src={`http://localhost:7230/uploads/${proimage}`}
+                                        src={getImageUrl(proimage)}
                                         alt={`Product Image ${index + 1}`}
                                     />
                                 </Carousel.Item>
@@ -237,7 +238,7 @@ const ProductTry = () => {
                 </div>)}
                                     <img
                                         className="card-img-top s-img"
-                                        src={`http://localhost:7230/uploads/${suggestedProduct.image1}`}
+                                        src={getImageUrl(suggestedProduct.image1)}
                                         alt={suggestedProduct.Pname}
                                     />
                                     <div className="card-body">

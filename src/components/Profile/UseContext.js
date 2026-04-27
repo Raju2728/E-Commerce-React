@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../apiConfig';
 
 const UserContext = createContext();
 
@@ -11,7 +12,7 @@ const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:7230/api/user/6'); // Replace with dynamic user ID
+        const response = await axios.get(`${API_BASE_URL}/api/user/6`); // Replace with dynamic user ID
         setUser(response.data);
       } catch (error) {
         setError('Error fetching user data');

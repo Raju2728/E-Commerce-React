@@ -3,6 +3,7 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import './index.css'
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../../apiConfig';
 
 const Adminindex = () => {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ const Adminindex = () => {
     e.preventDefault();
     alert("This Page Is Only Used For Pc Devices");
     try {
-      const response = await axios.post('http://localhost:7230/adminLogin', { email, password });
+      const response = await axios.post(`${API_BASE_URL}/adminLogin`, { email, password });
       // console.log('Sign in successful:', response.status);
       if(response.status ===200){
         navigate("/AdminPannel")

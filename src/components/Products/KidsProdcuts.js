@@ -4,6 +4,7 @@ import './products.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
+import { API_BASE_URL, getImageUrl } from '../../apiConfig';
 
 const KidsProductsPage = ({ direction = 'left' }) => {
 
@@ -16,7 +17,7 @@ const KidsProductsPage = ({ direction = 'left' }) => {
     // Fetch products from the backend
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:7230/kproducts');
+        const response = await fetch(`${API_BASE_URL}/kproducts`);
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -78,7 +79,7 @@ const KidsProductsPage = ({ direction = 'left' }) => {
                 </div>)}
                 <Card.Img 
                   variant="top" 
-                  src={`http://localhost:7230/uploads/${product.image1}`}
+                  src={getImageUrl(product.image1)}
                   alt={product.Pname} 
                   className="pro-img" 
                 />

@@ -5,6 +5,7 @@ import '../Nav/navbar.css'
 import { Link } from 'react-router-dom';
 import { FaCartPlus } from "react-icons/fa";
 import axios from "axios"
+import { API_BASE_URL } from '../../apiConfig';
 
 function NavBar() {
   const UserName = localStorage.getItem('UserName');
@@ -12,7 +13,7 @@ function NavBar() {
 
   useEffect(() => {
     const fetchCartCount = () => {
-      axios.get('http://localhost:7230/cart')
+      axios.get(`${API_BASE_URL}/cart`)
           .then(response => {
               setCartCount(response.data.cartCount)
               console.log(response.data.cartCount);
@@ -67,6 +68,7 @@ import '../Nav/navbar.css';
 import { Link } from 'react-router-dom';
 import { FaCartPlus } from "react-icons/fa";
 import axios from "axios";
+import { API_BASE_URL } from '../../apiConfig';
 
 function NavBar() {
   const UserName = localStorage.getItem('UserName');
@@ -74,7 +76,7 @@ function NavBar() {
 
   // Fetch cart count on load and updates
   const fetchCartCount = () => {
-    axios.get('http://localhost:7230/cart')
+    axios.get(`${API_BASE_URL}/cart`)
       .then(response => {
         setCartCount(response.data.cartCount);
         // console.log(response.data.cartCount);
@@ -88,7 +90,7 @@ function NavBar() {
 
     // Clear cart when cartCount is 0
     if (cartCount === 0) {
-      axios.delete('http://localhost:7230/cart/clear') // Assuming this endpoint clears the cart
+      axios.delete(`${API_BASE_URL}/cart/clear`) // Assuming this endpoint clears the cart
         .then(() => console.log('Cart cleared'))
         .catch(error => console.error('Error clearing cart', error));
     }

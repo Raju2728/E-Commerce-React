@@ -3,6 +3,7 @@ import { Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import './forgot.css'
 import NavBar from '../Nav/NavBar';
+import { API_BASE_URL } from '../../apiConfig';
 
 const ForgotPassword = () => {
   const [email, setCurrentPassword] = useState('');
@@ -21,7 +22,7 @@ const ForgotPassword = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:7230/Forgotpass', {
+      const response = await axios.post(`${API_BASE_URL}/Forgotpass`, {
         email,
         newPassword,
       });

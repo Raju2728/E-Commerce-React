@@ -1,6 +1,5 @@
 .Cart-cont{
     height: 100vh;
-    /* background-color: chocolate; */
 }
 .Cart-body{
     margin: 3%;
@@ -39,10 +38,13 @@
     margin: 5px 0;
   }
   
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     .cart-mobile-view {
       display: none;
     }
+    .empty-cart{
+      width: 100%;
+  }
   }
   
   @media (max-width : 480px) {

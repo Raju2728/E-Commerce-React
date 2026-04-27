@@ -4,6 +4,7 @@ import axios from 'axios';
 import './signin.css';
 import NavBar from '../Nav/NavBar';
 import { Link, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../../apiConfig';
 
 const SignIn = () => {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:7230/login', { email, password });
+      const response = await axios.post(`${API_BASE_URL}/login`, { email, password });
       // console.log('Sign in successful:', response.status);
       if(response.status ===200){
         navigate("/E-Commerce-React")

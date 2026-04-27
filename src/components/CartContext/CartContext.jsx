@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../apiConfig';
 
 export const CartContext = createContext();
 
@@ -8,7 +9,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchCart = () => {
-      axios.get('http://localhost:7230/cart')
+      axios.get(`${API_BASE_URL}/cart`)
         .then(response => {
           setCartItems(response.data.cart || []); // Ensure cart is an array, even if empty
         })

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import emptyCart from "../../Assets/empty-cart.png";
 import NavBar from '../Nav/NavBar';
 import './cart.css';
+import { getImageUrl } from '../../apiConfig';
 
 const Cart = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
@@ -97,7 +98,7 @@ const Cart = () => {
             <tbody>
               {cartItems.map(item => (
                 <tr key={item.id}>
-                  <td><img src={`http://localhost:7230/uploads/${item.image1}`} alt={item.Pname} style={{ width: '50px' }} /></td>
+                  <td><img src={getImageUrl(item.image1)} alt={item.Pname} style={{ width: '50px' }} /></td>
                   <td>{item.Pname}</td>
                   <td>{item.Pcategorey}</td>
                   <td>{item.gender}</td>
@@ -123,7 +124,7 @@ const Cart = () => {
           <div className="cart-mobile-view d-md-none">
             {cartItems.map(item => (
               <div className="cart-item-mobile" key={item.id}>
-                <img src={`http://localhost:7230/uploads/${item.image1}`} alt={item.Pname} className="cart-item-image" />
+                <img src={getImageUrl(item.image1)} alt={item.Pname} className="cart-item-image" />
                 <div className="cart-item-details">
                   <h6>{item.Pname}</h6>
                   <p>Category: {item.Pcategorey}</p>

@@ -7,6 +7,7 @@ import { Form, InputGroup, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../../apiConfig';
 
 const Signup = () => {
   const navigate = useNavigate()
@@ -52,7 +53,7 @@ const Signup = () => {
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await axios.post('http://localhost:7230/signup', formData);
+        const response = await axios.post(`${API_BASE_URL}/signup`, formData);
         setMessage("Registration successful!"); // Set success message
         setMessageType('success')
         console.log('Form data submitted:', response.data);

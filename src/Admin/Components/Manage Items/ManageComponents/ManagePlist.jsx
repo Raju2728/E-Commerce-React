@@ -3,6 +3,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminNavBar from '../../AdminNavbar/AdminNavbar';
 import '../manageitems.css'
+import { API_BASE_URL, getImageUrl } from '../../../../apiConfig';
 
 const ManagePlist = () => {
   const [productList, setProductList] = useState([]);
@@ -10,7 +11,7 @@ const ManagePlist = () => {
   // Fetch product list from the backend API
   useEffect(() => {
     axios
-      .get('http://localhost:7230/ManageProduct')
+      .get(`${API_BASE_URL}/ManageProduct`)
       .then(response => {
         setProductList(response.data);
         console.log(response.data)
@@ -51,7 +52,7 @@ const ManagePlist = () => {
                 <td>{product.originalprice}</td>
                 <td>{product.offerprice}</td>
                 <td>
-                  <img src={`http://localhost:7230/uploads/${product.image1}`} alt="Product" style={{ width: '50px' }} />
+                  <img src={getImageUrl(product.image1)} alt="Product" style={{ width: '50px' }} />
                 </td>
               </tr>
             ))

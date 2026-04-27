@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { MdVerified } from "react-icons/md";
 import { VscUnverified } from "react-icons/vsc";
+import { API_BASE_URL } from '../../../apiConfig';
 
 const UserComp = () => {
 
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:7230/Users')
+        axios.get(`${API_BASE_URL}/Users`)
             .then(response => {
                 setUsers(response.data);
                 console.log(response.data)

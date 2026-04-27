@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavBar from '../Nav/NavBar'
 import { Button } from 'react-bootstrap';
 import './profile.css';
+import { API_BASE_URL } from '../../apiConfig';
 
 const ProfilePage = () => {
     const [userData, setUserData] = useState({});
@@ -14,7 +15,8 @@ const ProfilePage = () => {
 
     useEffect(() => {
         // Fetch user data
-        axios.get('/api/user/profile')
+        // Use centralized API_BASE_URL for all API calls
+        axios.get(`${API_BASE_URL}/api/user/profile`)
             .then(response => {
                 setUserData(response.data);
                 console.log(userData)
@@ -24,7 +26,7 @@ const ProfilePage = () => {
             });
 
         // Fetch order history
-        axios.get('/api/user/orders')
+        axios.get(`${API_BASE_URL}/api/user/orders`)
             .then(response => {
                 setOrderHistory(response.data);
             })
@@ -33,7 +35,7 @@ const ProfilePage = () => {
             });
 
         // Fetch saved items
-        axios.get('/api/user/saved-items')
+        axios.get(`${API_BASE_URL}/api/user/saved-items`)
             .then(response => {
                 setSavedItems(response.data);
             })
@@ -43,7 +45,7 @@ const ProfilePage = () => {
     });
 
     const handleLogout = () => {
-        axios.post('http://localhost:7230/logout')
+        axios.post(`${API_BASE_URL}/logout`)
          .then((response) => {
             console.log(response);
             localStorage.removeItem('UserName');

@@ -3,6 +3,7 @@ import { Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import './changepass.css'
 import AdminNavbar from '../AdminNavbar/AdminNavbar'
+import { API_BASE_URL } from '../../../apiConfig';
 
 const ChangePassword = () => {
   const [currentPassword, setCurrentPassword] = useState('');
@@ -21,7 +22,7 @@ const ChangePassword = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:7230/adminChangepass', {
+      const response = await axios.post(`${API_BASE_URL}/adminChangepass`, {
         currentPassword,
         newPassword,
       });

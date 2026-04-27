@@ -8,8 +8,9 @@ import { LuLogOut } from "react-icons/lu";
 import { FaExchangeAlt } from "react-icons/fa";
 import { MdManageHistory } from "react-icons/md";
 import axios from 'axios';
+import { API_BASE_URL } from '../../../apiConfig';
 const handleLogout = () => {
-  axios.post('http://localhost:7230/Adminlogout')
+  axios.post(`${API_BASE_URL}/Adminlogout`)
    .then((response) => {
       console.log(response);
       localStorage.removeItem('AdminUserName');
@@ -28,7 +29,7 @@ const AdminNavBar = () => {
     // Fetch user count from your backend API
     const fetchCount=async()=>{
       try{
-        const response= await axios.get('http://localhost:7230/userCount') // Replace with your API endpoint
+        const response= await axios.get(`${API_BASE_URL}/userCount`) // Replace with your API endpoint
         setUserCount(response.data)
         // console.log(response.data);
         // console.log({userCount});
