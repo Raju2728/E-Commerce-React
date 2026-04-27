@@ -5,7 +5,7 @@ import './index.css'
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../apiConfig';
 
-const Adminindex = () => {
+const AdminIndex = () => {
   const navigate = useNavigate()
   const [msg , setMsg] = useState('')
   const [email, setUsername] = useState('');
@@ -80,4 +80,4 @@ const Adminindex = () => {
   );
 };
 
-export default Adminindex;
+export default AdminIndex;
