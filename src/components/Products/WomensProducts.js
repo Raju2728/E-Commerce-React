@@ -7,20 +7,28 @@ import { motion } from 'framer-motion';
 import { API_BASE_URL, getImageUrl } from '../../apiConfig';
 
 const WomenProductsPage = ({ direction = 'left' }) => {
-  const [products, setProducts] = useState([]); 
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
-  useEffect(() => {
-    // Fetch products from the backend
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(`${API_BASE_URL}/wproducts`);
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
 
+  const fetchProducts = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(`${API_BASE_URL}/wproducts`);
+      if (!response.ok) throw new Error('Failed to load products');
+      const data = await response.json();
+      setProducts(data);
+    } catch (err) {
+      setError(err.message);
+      console.error('Error fetching products:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchProducts();
   }, []);
 
@@ -30,12 +38,11 @@ const WomenProductsPage = ({ direction = 'left' }) => {
   });
 
   const variants = {
-    hidden: { opacity: 0, x: direction === 'left' ? -100 : 100 },
+    hidden: { opacity: 0, x: direction === 'left' ? -60 : 60 },
     visible: { opacity: 1, x: 0 },
   };
 
   const handleProductClick = (id) => {
-    // Navigate to the product details page with the product ID
     navigate(`/product/${id}`);
   };
 
@@ -45,53 +52,58 @@ const WomenProductsPage = ({ direction = 'left' }) => {
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       variants={variants}
-      transition={{ duration: 0.5 }}
-      style={{ marginTop: '20px', marginBottom: '20px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <div className="container2">
-        <h3 className="text-left mb-2 mt-2">
-          <Link to="/women" className="link-body">Women's</Link>
-        </h3>
-        <Row>
-          {products.map((product) => (
-            <Col key={product.id} md={4} lg={2} className="mb-4" onClick={() => handleProductClick(product.id)}>
-              <Card className="card">
-              {product.stock === 0 ?
-                (<div className='d-flex w-100 justify-content-center align-items-center rounded-top p-stock'>
-                  In-Stock
-                  <div className='green-dot'>
-                    <div className='white-dot'>
-                      <div className='inner-Gdot'></div>
-                    </div>
+      <div className="product-section women">
+        <Link to="/women" className="product-section-title">
+          Women's Collection →
+        </Link>
+
+        {loading && (
+          <div className="products-loading">
+            <div className="modern-spinner"></div>
+            <p>Loading products...</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="products-error">
+            <p>⚠️ {error}</p>
+            <Button className="retry-btn" onClick={fetchProducts}>Try Again</Button>
+          </div>
+        )}
+
+        {!loading && !error && (
+          <Row xs={2} sm={2} md={3} lg={4} xl={6}>
+            {products.map((product) => (
+              <Col key={product.id} className="product-card-wrapper" onClick={() => handleProductClick(product.id)}>
+                <Card className="product-card">
+                  <div className="product-img-wrapper">
+                    <span className={`stock-badge ${product.stock === 0 ? 'in-stock' : 'out-of-stock'}`}>
+                      <span className="stock-dot"></span>
+                      {product.stock === 0 ? 'In Stock' : 'Out of Stock'}
+                    </span>
+                    <Card.Img
+                      variant="top"
+                      src={getImageUrl(product.image1)}
+                      alt={product.Pname}
+                      className="product-card-img"
+                    />
                   </div>
-                </div>):
-                (<div className='d-flex w-100 justify-content-center align-items-center p-stock'>
-                  Out-Of-Stock
-                  <div className='red-dot'>
-                    <div className='white-dot'>
-                      <div className='inner-Rdot'></div>
+                  <Card.Body className="product-card-body">
+                    <div className="product-card-name">{product.Pname}</div>
+                    <div className="product-card-desc">{product.description}</div>
+                    <div className="price-row">
+                      <span className="original-price">₹{product.originalprice}</span>
+                      <span className="offer-price">₹{product.offerprice}</span>
                     </div>
-                  </div>
-                </div>)}
-                <Card.Img 
-                  variant="top" 
-                  src={getImageUrl(product.image1)}
-                  alt={product.Pname} 
-                  className="pro-img" 
-                />
-                <Card.Body className="p-cont">
-                  <Card.Title className="p-name">{product.Pname}</Card.Title>
-                  <Card.Text>{product.description}</Card.Text>
-                  <Card.Text className="text-muted text-decoration-line-through gap"> <strong> Original Price: <span className='text-danger'>&#8377;{product.originalprice}</span></strong>
-                  </Card.Text>
-                  <Card.Text className="text-dark gap"> <strong> Offer Price: <span className='text-success'>&#8377;{product.offerprice}</span></strong>
-                  </Card.Text>
-                  <Button variant="primary" className="adc-btn">Add to Cart</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+                    <Button className="add-cart-btn">Add to Cart</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        )}
       </div>
     </motion.div>
   );

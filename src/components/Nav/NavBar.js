@@ -12,39 +12,39 @@ function NavBar() {
   const { cartCount } = useContext(CartContext);
 
   return (
-    <Navbar bg="dark" expand="lg" className='navbar'>
-      <Navbar.Brand href='/E-Commerce-React' className='text-light ms-4'>Trending Mart</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" className='toggel' />
+    <Navbar expand="lg" className='modern-navbar'>
+      <Navbar.Brand href='/E-Commerce-React' className='ms-3'>Trending Mart</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className='navbar-toggler-modern' />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="/E-Commerce-React" className='text-light ms-3'>Home</Nav.Link>
-          <Nav.Link className='text-light ms-3'>
-            <Link to='/signup' className='link'>Signup</Link>
+          <Nav.Link href="/E-Commerce-React" className='ms-2'>Home</Nav.Link>
+          <Nav.Link className='ms-2'>
+            <Link to='/signup' className='nav-link-inner'>Signup</Link>
           </Nav.Link>
-          <Nav.Link className='text-light ms-3'>
-            <Link to='/LogIn' className='link'>SignIn</Link>
+          <Nav.Link className='ms-2'>
+            <Link to='/LogIn' className='nav-link-inner'>SignIn</Link>
           </Nav.Link>
-          <Nav.Link className='text-light ms-3'>
-            <Link to='/categories' className='link'>Categories</Link>
+          <Nav.Link className='ms-2'>
+            <Link to='/categories' className='nav-link-inner'>Categories</Link>
           </Nav.Link>
-          <Nav.Link className='text-light ms-3'>
-            <Link to='/profile' className='link'>
-              {UserName && <span className="User-name">{UserName}</span>}
+          <Nav.Link className='ms-2'>
+            <Link to='/profile' className='nav-link-inner'>
+              {UserName && <span className="user-badge">{UserName}</span>}
             </Link>
           </Nav.Link>
         </Nav>
-        <Button className='me-3' href='/cart'>
-          <span className='badge badge-light text-dark'>{cartCount}</span>&nbsp;
+        <Button className='cart-btn me-3' href='/cart'>
+          <span className='cart-badge'>{cartCount}</span>
           <FaCartPlus /> Cart
         </Button>
         <Form className="d-flex">
           <FormControl
             type="search"
-            placeholder="Search"
-            className="me-3"
+            placeholder="Search products..."
+            className="search-input me-2"
             aria-label="Search"
           />
-          <Button variant="outline-success" className='text-light me-3'>Search</Button>
+          <Button className='search-btn'>Search</Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>

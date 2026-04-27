@@ -3,7 +3,7 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import './index.css'
 import { useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from '../../apiConfig';
+import { API_BASE_URL } from '../apiConfig';
 
 const Adminindex = () => {
   const navigate = useNavigate()

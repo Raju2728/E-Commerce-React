@@ -1,37 +1,96 @@
-.glass-bg{
-    background-image: url('../../Assets/bg1.avif');
-    height: 100vh;
-    margin-top: -1.5rem;
-    background-size: cover;
-    z-index: 0;
+/* ===== Sign In Page: Glassmorphism ===== */
+.glass-bg {
+  background-image: url('../../Assets/bg1.avif');
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
-.container{
-    background-color: rgba(255, 255, 255, 0.44);
-    position: relative;
-    top: 5rem;
-    max-width: 1000px;
-    padding: 1rem;
-    border-radius: 8px;
-    backdrop-filter: blur(8px);
+
+.glass-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.5);
+  z-index: 0;
 }
-.eye-ico {
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    outline: none;
+
+.glass-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-bg .container {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  max-width: 500px;
+  margin: 0 auto;
+  padding: var(--space-2xl);
+  position: relative;
+  top: 5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.glass-bg .container h3 {
+  color: #fff;
+  font-weight: 700;
+}
+
+.glass-bg .container .float-lb {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+
+.glass-bg .container .form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.8rem;
+  margin-bottom: var(--space-md);
+  transition: all var(--transition-normal);
+}
+
+.glass-bg .container .form-control:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+  color: #fff;
+}
+
+.glass-bg .container .btn-primary {
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.glass-bg .container .btn-primary:hover {
+  box-shadow: var(--shadow-primary);
+  transform: translateY(-1px);
+}
+
+.glass-bg a {
+  color: var(--primary-light);
+  font-size: 0.85rem;
+  transition: color var(--transition-fast);
+}
+
+.glass-bg a:hover {
+  color: #fff;
+}
+
+@media (max-width: 576px) {
+  .glass-bg .container {
+    margin: 0 var(--space-md);
+    padding: var(--space-lg);
+    top: 3rem;
   }
-  
-  .eye-ico .svg-inline--fa {
-    color: #6c757d;
-    font-size: 1rem;
-  }
-  
-  @media (max-width: 576px) {
-    .container {
-      padding-top: 20%;
-    }
-  
-    .eye-ico .svg-inline--fa {
-      font-size: 0.875rem;
-    }
-  }
+}
