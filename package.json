@@ -1,7 +1,6 @@
 {
-  "homepage": "http://Rajesh2730.github.io/E-Commerce-React",
-  "name": "users",
-  "version": "0.1.0",
+  "name": "trending-mart",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",

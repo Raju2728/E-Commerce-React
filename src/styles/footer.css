@@ -1,0 +1,110 @@
+/* ===== Modern Footer ===== */
+.modern-footer {
+  background: var(--bg-darker);
+  color: rgba(255, 255, 255, 0.7);
+  padding: clamp(2rem, 5vw, 4rem) var(--container-padding) clamp(1rem, 3vw, 2rem);
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative top gradient line */
+.modern-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+}
+
+.footer-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.modern-footer h5 {
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.modern-footer h5::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+.modern-footer p {
+  font-size: clamp(0.78rem, 1.4vw, 0.85rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+  transition: all var(--transition-normal);
+}
+
+.footer-social-link:hover {
+  color: var(--primary-light);
+  transform: translateX(4px);
+}
+
+.footer-social-link i {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  transition: all var(--transition-normal);
+}
+
+.footer-social-link:hover i {
+  background: var(--primary);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.footer-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+}
+
+.footer-copyright {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: clamp(0.72rem, 1.2vw, 0.8rem);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .modern-footer {
+    text-align: center;
+  }
+
+  .modern-footer h5::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

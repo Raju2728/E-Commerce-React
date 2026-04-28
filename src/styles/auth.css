@@ -1,0 +1,198 @@
+/* ===== Auth Pages: Premium Gradient + Glass ===== */
+.auth-page {
+  min-height: 100vh;
+  background: var(--gradient-auth);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating orbs */
+.auth-page::before,
+.auth-page::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  animation: floatOrb 8s ease-in-out infinite alternate;
+}
+
+.auth-page::before {
+  width: 500px;
+  height: 500px;
+  background: var(--primary);
+  opacity: 0.12;
+  top: -150px;
+  right: -150px;
+}
+
+.auth-page::after {
+  width: 350px;
+  height: 350px;
+  background: var(--accent);
+  opacity: 0.1;
+  bottom: -100px;
+  left: -100px;
+  animation-delay: 4s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+.auth-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Content centering */
+.auth-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 56px);
+  padding: clamp(1.5rem, 4vw, 2.5rem) var(--container-padding);
+}
+
+/* Glass card */
+.auth-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 460px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
+  animation: authFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes authFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.auth-card h2,
+.auth-card h3 {
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+}
+
+.auth-card .form-label {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+  font-size: 0.82rem;
+  margin-bottom: 0.35rem;
+}
+
+.auth-card .form-control {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+  margin-bottom: var(--space-xs);
+  transition: all var(--transition-normal);
+  font-size: 0.9rem;
+}
+
+.auth-card .form-control:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+  color: #fff;
+}
+
+.auth-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.auth-card .btn-primary {
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition-normal);
+  letter-spacing: 0.3px;
+}
+
+.auth-card .btn-primary:hover {
+  box-shadow: var(--shadow-primary-lg);
+  transform: translateY(-2px);
+}
+
+.auth-card a {
+  color: var(--primary-light);
+  font-size: 0.82rem;
+  transition: color var(--transition-fast);
+}
+
+.auth-card a:hover {
+  color: #fff;
+}
+
+/* Eye icon */
+.eye-icon {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-left: none !important;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all var(--transition-normal);
+}
+
+.eye-icon:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.eye-icon .svg-inline--fa {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+/* Error message */
+.auth-error {
+  color: var(--danger);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-align: center;
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+  animation: shakeError 0.4s ease-in-out;
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@media (max-width: 576px) {
+  .auth-card {
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 360px) {
+  .auth-card {
+    padding: var(--space-md);
+  }
+}
