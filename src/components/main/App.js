@@ -27,7 +27,7 @@ import PaymentPage from '../Payment Page/Payment';
 import NetBankingPage from '../Payment Page/NetBanking/NetBankingPage';
 import ManageItems from '../../admin/Components/Manage Items/ManageItems';
 import ManagePlist from '../../admin/Components/Manage Items/ManageComponents/ManagePlist';
-import AdminIndex from '../../admin/Adminindex';
+import AdminIndex from '../../admin/AdminIndex';
 
 
 function App() { 
