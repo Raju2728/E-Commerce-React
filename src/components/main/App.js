@@ -12,12 +12,12 @@ import JoinWproducts from '../Products/JoinWproducts';
 import JoinKproducts from '../Products/JoinKproducts';
 import DisplayProfile from '../Profile/DisplayProfile';
 import Merged from '../../admin/components/app/Merged';
-import ChangePassword from '../../admin/Components/ChangePassword/Changepass';
-import AddItems from '../../admin/Components/Add items/AddItems';
+import ChangePassword from '../../admin/components/ChangePassword/Changepass';
+import AddItems from '../../admin/components/Add items/AddItems';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import ManageORD from '../../admin/components/ManageOrders/ManageORD';
 import User from '../../admin/components/WatchUser/User';
-import UserComp from '../../admin/Components/WatchUser/UserComp';
+import UserComp from '../../admin/components/WatchUser/UserComp';
 import Verified from '../Signup/Verified';
 // import ProductDetail from '../Product Details/ProductDetails';
 import ProductTry from '../Product Details/ProductTry';
@@ -25,8 +25,8 @@ import { CartProvider } from '../CartContext/CartContext';
 import Cart from '../Cart/Cart';
 import PaymentPage from '../Payment Page/Payment';
 import NetBankingPage from '../Payment Page/NetBanking/NetBankingPage';
-import ManageItems from '../../admin/Components/Manage Items/ManageItems';
-import ManagePlist from '../../admin/Components/Manage Items/ManageComponents/ManagePlist';
+import ManageItems from '../../admin/components/Manage Items/ManageItems';
+import ManagePlist from '../../admin/components/Manage Items/ManageComponents/ManagePlist';
 import AdminIndex from '../../admin/AdminIndex';
 
 
